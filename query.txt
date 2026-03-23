@@ -1,0 +1,45 @@
+-- INSERT INTO clienti (nome, cognome, anno_di_nascita, regione_residenza)
+-- VALUES ('Aldo', 'Baglio', 1980, 'Sicilia');
+-- VALUES ('Giovanni', 'Storti', 1970, 'Lombardia');
+-- VALUES ('Giacomo', 'Poretti', 1960, 'Lombardia');
+
+-- DELETE FROM clienti WHERE numero_cliente = 4
+
+-- es.1
+-- SELECT * FROM clienti WHERE nome = 'Mario'
+
+-- es.2
+-- SELECT nome, cognome
+-- FROM clienti
+-- WHERE anno_di_nascita = 1982
+
+-- INSERT INTO fatture (tipologia, importo, iva, id_cliente, data_fattura, numero_fornitore)
+-- VALUES ('Immediata', 500, 20, 1, '2026-03-23', 1)
+-- VALUES ('Immediata', 700, 20, 2, '2026-03-10', 2)
+-- VALUES ('Immediata', 1000, 20, 3, '2026-03-03', 3)
+
+-- es.3
+-- SELECT iva, COUNT(*) FROM fatture GROUP BY iva
+
+-- INSERT INTO prodotti (descrizione, in_produzione, in_commercio, data_attivazione, data_disattivazione)
+-- VALUES ('Descrizione1', true, false, '2026-03-23', '2026-03-30')
+-- VALUES ('Descrizione2', true, true, '2026-03-10', '2026-03-25')
+-- VALUES ('Descrizione3', false, true, '2026-03-15', '2026-03-29')
+-- VALUES ('Descrizione4', false, false, '2026-03-20', '2026-03-28')
+-- VALUES ('Descrizione5', true, false, '2017-03-23', '2017-03-30')
+
+-- es.4
+-- SELECT EXTRACT(YEAR FROM data_attivazione) as anno FROM prodotti WHERE EXTRACT(YEAR FROM data_attivazione) = 2017
+-- AND (in_produzione = true OR in_commercio = true)
+
+-- es.5
+-- SELECT * FROM fatture JOIN clienti ON fatture.id_cliente = clienti.numero_cliente WHERE importo < 1000
+
+-- es.6
+SELECT numero_fattura, importo, iva, data_fattura,  FROM fatture JOIN fornitori ON fatture.numero_fornitore = fornitori.numero_fornitore
+
+
+
+
+
+
